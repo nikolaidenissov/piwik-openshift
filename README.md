@@ -30,7 +30,7 @@ oc -n openshift process mariadb-persistent -p MYSQL_DATABASE=matomo | oc -n $PRO
 ### 2 Deploy Matomo
 
 ```
-oc process -f https://raw.githubusercontent.com/CSCfi/piwik-openshift/blob/master/matomo.yaml -p APP_URL=stats.example.com | oc -n $PROJECT create -f -
+oc process -f https://raw.githubusercontent.com/CSCfi/piwik-openshift/master/matomo.yaml -p APP_URL=stats.example.com | oc -n $PROJECT create -f -
 
 ```
 
@@ -50,5 +50,5 @@ oc process -f https://raw.githubusercontent.com/CSCfi/piwik-openshift/blob/maste
 Execute the following command to get the available parameters:
 
 ```
-oc process -f https://raw.githubusercontent.com/CSCfi/piwik-openshift/blob/master/matomo.yaml --parameters
+oc process -f https://raw.githubusercontent.com/CSCfi/piwik-openshift/master/matomo.yaml --parameters
 ```
