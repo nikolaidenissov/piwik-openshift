@@ -250,8 +250,9 @@ objects:
       name: matomo
       weight: 100
     wildcardPolicy: None
-    insecureEdgeTerminationPolicy: Redirect
-    termination: edge
+    tls:
+      insecureEdgeTerminationPolicy: Redirect
+      termination: edge
 - apiVersion: batch/v2alpha1
   kind: CronJob
   metadata:
