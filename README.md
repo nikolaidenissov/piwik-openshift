@@ -21,7 +21,7 @@ PROJECT=matomo
 oc new-project $PROJECT
 ```
 
-### 1 Deploy Database
+### 1 Deploy Database (Optional)
 
 ```
 oc -n openshift process mariadb-persistent -p MYSQL_DATABASE=matomo | oc -n $PROJECT create -f -
@@ -30,12 +30,13 @@ oc -n openshift process mariadb-persistent -p MYSQL_DATABASE=matomo | oc -n $PRO
 ### 2 Deploy Matomo
 
 ```
-oc process -f https://raw.githubusercontent.com/tobru/piwik-openshift/master/matomo.yaml -p APP_URL=stats.example.com | oc -n $PROJECT create -f -
+oc process -f https://raw.githubusercontent.com/CSCfi/piwik-openshift/blob/master/matomo.yaml -p APP_URL=stats.example.com | oc -n $PROJECT create -f -
+
 ```
 
 ### 3 Configure Matomo
 
-* Navigate to http://stats.example.com
+* Navigate to https://matomo.rahtiapp.fi
 * Fill in the form and finish the installation. The DB credentials can be 
   found in the secret `mariadb`. In the Webconsole it can be found under
   `Resources -> Secrets -> mariadb -> Reveal Secret`
@@ -49,15 +50,5 @@ oc process -f https://raw.githubusercontent.com/tobru/piwik-openshift/master/mat
 Execute the following command to get the available parameters:
 
 ```
-oc process -f https://raw.githubusercontent.com/tobru/piwik-openshift/master/matomo.yaml --parameters
+oc process -f https://raw.githubusercontent.com/CSCfi/piwik-openshift/blob/master/matomo.yaml --parameters
 ```
-
-## Contributions
-
-Very welcome!
-
-1. Fork it (https://github.com/tobru/piwik-openshift/fork)
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
