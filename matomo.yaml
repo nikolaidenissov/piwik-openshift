@@ -151,7 +151,10 @@ objects:
             tcpSocket:
               port: 9000
             timeoutSeconds: 5
-          resources: {}
+          resources:
+            limits:
+              cpu: "200m"
+              memory: "1024Mi"
           terminationMessagePath: /dev/termination-log
           volumeMounts:
           - mountPath: /var/www/html
@@ -180,7 +183,10 @@ objects:
             tcpSocket:
               port: 8080
             timeoutSeconds: 1
-          resources: {}
+          resources:
+            limits:
+              cpu: "200m"
+              memory: "1024Mi"
           terminationMessagePath: /dev/termination-log
           volumeMounts:
           - mountPath: /var/www/html
